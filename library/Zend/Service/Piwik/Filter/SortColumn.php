@@ -16,7 +16,7 @@ class Zend_Service_Piwik_Filter_SortColumn extends Zend_Service_Piwik_Filter_Abs
 	 * (non-PHPdoc)
 	 * @see Zend_Service_Piwik_Filter_Abstract::setFilterValue()
 	 */
-	public function setFilterValue($value = 'asc')
+	public function setFilterValue($value = '')
 	{
 		$this->_filterValue = $value;
 	}
