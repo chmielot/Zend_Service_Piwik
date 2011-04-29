@@ -1,4 +1,26 @@
 <?php
+/**
+ * @throws Zend_Service_Piwik_Exception
+ *
+ * @method mixed Api
+ * @method mixed Actions
+ * @method mixed CustomVariables
+ * @method mixed Goals
+ * @method mixed LanguagesManager
+ * @method mixed Live
+ * @method mixed PDFReports
+ * @method mixed Provider
+ * @method mixed Referers
+ * @method mixed SEO
+ * @method mixed SitesManager
+ * @method mixed UserCountry
+ * @method mixed UserSettings
+ * @method mixed UsersManager
+ * @method mixed VisitFrequency
+ * @method mixed VisitTime
+ * @method mixed VisitorInterest
+ * @method mixed VistsSummary
+ */
 class Zend_Service_Piwik extends Zend_Service_Abstract
 {
     /**

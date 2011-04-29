@@ -15,7 +15,7 @@ class Zend_Service_Piwik_MethodProxy
     /**
      * Constructor
      *
-     * @param string              $module
+     * @param string             $module
      * @param Zend_Service_Piwik $piwik
      */
     public function __construct($module, Zend_Service_Piwik $piwik)
@@ -39,6 +39,8 @@ class Zend_Service_Piwik_MethodProxy
      *
      * @param string $method
      * @param array  $params
+     *
+     * @method mixed getCustomVariables
      *
      * @return string
      */
