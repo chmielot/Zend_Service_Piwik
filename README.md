@@ -8,7 +8,6 @@ Use the Zend_Service_Piwik-component to query your Piwik-Installation via the AP
 Basic usage:
 ------------
 ``` php
-<?php
 $piwik = new Zend_Service_Piwik();
 $piwik->setHost('http://demo.piwik.org')
       ->setAuthToken('anonymous')
@@ -19,7 +18,27 @@ $piwik->setHost('http://demo.piwik.org')
 $pageTitles = $piwik->Actions()->getPageTitles();
 
 echo $pageTitles;
-?>
 ```
 
 `$pageTitles` contains the relevant information and can be processed further if needed.
+
+Configuration using Zend_Config
+-------------------------------
+
+Alternativly you can pass an Zend_Config-object to set the options.
+
+``` ini
+[piwik]
+host = 'http://demo.piwik.org'
+tokenauth = 'anonymous'
+idsite = 7
+format = 'json'
+date = 'previous7'
+```
+
+```php
+$configFile = '/path/to/ini';
+$config = new Zend_Config_Ini($configFile, 'piwik');
+
+$piwik = new Zend_Service_Piwik($config);
+```
