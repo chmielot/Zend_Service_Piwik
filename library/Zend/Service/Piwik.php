@@ -216,18 +216,19 @@ class Zend_Service_Piwik extends Zend_Service_Abstract
      *
      * @return Zend_Service_Piwik
      */
-    public function setConfig($config)
+    public function setConfig(Zend_Config $config)
     {
-        if ($config instanceof Zend_Config)
-        {
-            $config = $config->toArray();
-        }
-        else if (!is_array($config))
-        {
-            $config = (array)$config;
-        }
+        $config = $config->toArray();
 
-        return $this;
+        foreach ($config as $key => $value) {
+            $option = str_replace('_', ' ', strtolower($key));
+            $option = str_replace(' ', '', ucwords($option));
+            $method = 'set' . $option;
+
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     /**
@@ -312,7 +313,7 @@ class Zend_Service_Piwik extends Zend_Service_Abstract
      *
      * @return string
      */
-    public function getAuthToken()
+    public function getTokenAuth()
     {
         return $this->_tokenAuth;
     }
@@ -324,7 +325,7 @@ class Zend_Service_Piwik extends Zend_Service_Abstract
      *
      * @return Zend_Service_Piwik
      */
-    public function setAuthToken($token)
+    public function setTokenAuth($token)
     {
         $this->_tokenAuth = $token;
 
